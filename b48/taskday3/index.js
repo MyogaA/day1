@@ -41,6 +41,6 @@ function isValidEmail(email) {
     }
 
     let a = document.createElement('a')
-  a.href = `mailto:${email}?subject=${subject}&body=Halo nama saya ${name},\n${message}, silahkan kontak saya di nomor berikut : ${phone}`
+  a.href = `mailto:${email}?subject=${subject}&body=Halo nama saya ${name},\n${message}, silahkan kontak saya di nomor berikut : ${phoneNumber}`
   a.click()
   }
