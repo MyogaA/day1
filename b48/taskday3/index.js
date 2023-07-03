@@ -18,7 +18,6 @@ function isValidEmail(email) {
 
     if (name.trim() === '') {
       alert('Please enter your name.');
-      nameInput.style.bordercolor ('red')
       return;
     }
 
