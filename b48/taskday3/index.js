@@ -8,15 +8,17 @@ function isValidEmail(email) {
     return phoneRegex.test(phoneNumber);
   }
 
-  function validateAndSend() {
+  function validate() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phoneNumber = document.getElementById('phone').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
+    const nameInput = document.getElementById('name');
 
     if (name.trim() === '') {
       alert('Please enter your name.');
+      nameInput.style.bordercolor ('red')
       return;
     }
 
@@ -39,8 +41,8 @@ function isValidEmail(email) {
       alert('Please enter your message.');
       return;
     }
-
-    let a = document.createElement('a')
-  a.href = `mailto:${email}?subject=${subject}&body=Halo nama saya ${name},\n${message}, silahkan kontak saya di nomor berikut : ${phoneNumber}`
-  a.click()
+    let mail = document.createElement('mail')
+  mail.href = `mailto:${email}?subject=${subject}&body=Halo nama saya ${name},\n${message}, silahkan kontak saya di nomor berikut : ${phoneNumber}`
+  mail.click()
+  
   }
