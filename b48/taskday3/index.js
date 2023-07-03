@@ -14,7 +14,6 @@ function isValidEmail(email) {
     const phoneNumber = document.getElementById('phone').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    const nameInput = document.getElementById('name');
 
     if (name.trim() === '') {
       alert('Please enter your name.');
