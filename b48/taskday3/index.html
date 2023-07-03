@@ -111,19 +111,19 @@
         <form action="#" method="POST">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required oninput="this.style.borderColor = '';">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required oninput="this.style.borderColor = '';">
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="number" id="phone" name="phone" required oninput="this.style.borderColor = '';">
             </div>
             <div class="form-group">
                 <label for="subject">Subject:</label>
-                <select style="width: 418px;" id="subject" name="subject" required>
+                <select style="width: 418px;" id="subject" name="subject" required oninput="this.style.borderColor = '';">
                     <option value=""></option>
                     <option>Frontend Developer</option>
                     <option>Backend Developer</option>
@@ -132,9 +132,9 @@
             </div>
             <div class="form-group">
                 <label for="message">Your Message:</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" required oninput="this.style.borderColor = '';"></textarea>
             </div>
-            <button type="button" onclick="validate()" class="submit-btn">Submit</button>
+            <button type="button" id="button" onclick="validate()" class="submit-btn">Submit</button>
         </form>
     </div>
     <script src="index.js" ></script>
