@@ -227,3 +227,9 @@ p {
     margin-top: 15px;
     width: 25vh;
 }
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
