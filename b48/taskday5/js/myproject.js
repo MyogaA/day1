@@ -1,4 +1,5 @@
-// Mengambil referensi dari id HTML
+//  kode ini mengambil referensi elemen-elemen HTML yang akan digunakan,
+//  seperti form, input, dan elemen kontainer untuk menampilkan data proyek.
 const projectForm = document.getElementById('project-form');
 const projectNameInput = document.getElementById('projectname');
 const startDateInput = document.getElementById('startdate');
@@ -7,14 +8,18 @@ const descriptionInput = document.getElementById('message');
 const imageInput = document.getElementById('input-img');
 const projectCards = document.getElementById('project-card');
 
+
 // Array untuk menyimpan data project
 const projects = [];
 
 // Event listener saat form disubmit
+// sebuah event listener ditambahkan pada form untuk menangani saat form disubmit.
+// Event listener ini mencegah pengiriman form secara default menggunakan 
 projectForm.addEventListener('submit', function (event) {
   event.preventDefault(); // Mencegah form dari pengiriman default
 
   // Mengambil nilai dari form
+  // Saat form disubmit, nilai-nilai dari input form diambil menggunakan value properti dari elemen input.
   const projectName = projectNameInput.value;
   const startDate = startDateInput.value;
   const endDate = endDateInput.value;
@@ -22,9 +27,9 @@ projectForm.addEventListener('submit', function (event) {
   const imageFile = imageInput.files[0];
 
   // untuk membaca berkas gambar dan mengubahnya menjadi URL
-  const reader = new FileReader();
-  reader.onload = function () {
-    const imageUrl = reader.result;
+  const reader = new FileReader(); // Untuk membaca dan mengubah gambar menjadi URL, FileReader digunakan.
+  reader.onload = function () { // metode onload akan dipanggil saat pembacaan selesai.
+    const imageUrl = reader.result; // Di dalam onload, URL gambar dibaca dari reader.result.
 
     // Mengambil nilai dan data dari checkbox
     const nodejs = document.getElementById('nodejs').checked ? '<i class="fa-brands fa-node-js"></i>' : '';
@@ -33,6 +38,7 @@ projectForm.addEventListener('submit', function (event) {
     const typescript = document.getElementById('typescript').checked ? '<i class="fa-brands fa-java"></i>' : '';
 
     // Membuat objek data project baru
+    // Sebuah objek data proyek baru dibuat dengan nilai-nilai yang diambil dari form.
     const newProject = {
       projectName: projectName,
       startDate: startDate,
@@ -43,9 +49,13 @@ projectForm.addEventListener('submit', function (event) {
     };
 
     // Menambahkan data project baru ke dalam array projects
+    // Objek data proyek baru ditambahkan ke dalam array projects.
     projects.push(newProject);
 
     // Menampilkan semua data proyek menggunakan innerHTML dan loop
+    // Data proyek ditampilkan menggunakan innerHTML dan loop.
+    //  Sebuah string HTML dibangun untuk setiap proyek dalam array projects,
+    //  termasuk gambar, nama proyek, detail proyek, deskripsi, dan tombol aksi.
     projectCards.innerHTML = '';
     for (let i = 0; i < projects.length; i++) {
       const project = projects[i];
@@ -86,6 +96,7 @@ projectForm.addEventListener('submit', function (event) {
     }
 
     // Mengosongkan ulang nilai input form setelah data ditampilkan
+    // Setelah data ditampilkan, nilai-nilai input form dikosongkan.
     projectNameInput.value = '';
     startDateInput.value = '';
     endDateInput.value = '';
@@ -93,12 +104,16 @@ projectForm.addEventListener('submit', function (event) {
     imageInput.value = '';
 
     // Mengosongkan URL objek saat gambar tidak lagi diperlukan
+    // URL objek gambar dihapus menggunakan URL.revokeObjectURL(imageUrl) untuk menghemat memori.
     URL.revokeObjectURL(imageUrl);
   };
   reader.readAsDataURL(imageFile);
+  
+  // kode yang mengatur tampilan tanggal saat ini dalam format tanggal, bulan, tahun, jam, dan menit.
+  //  Nilai-nilai ini digunakan untuk menampilkan tanggal saat ini pada elemen HTML.
+  // Kode tersebut juga mencakup loop dan pemrosesan array bulan untuk menampilkan nama bulan dalam bahasa Indonesia.
   bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
-  let elTanggal = document.querySelector("#tanggal");
   let date = new Date();
   let day = date.getDate();
   let month = date.getMonth();
